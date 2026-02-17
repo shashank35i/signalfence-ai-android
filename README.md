@@ -3,11 +3,11 @@
 
   <h1>SignalFence</h1>
 
-  <p>AI-powered Android SMS firewall with on-device ML to detect spam and phishing in real time.</p>
+  <p>AI-powered Android SMS firewall with on-device XGBoost to detect spam and phishing in real time.</p>
 
   <p>
     <img src="https://img.shields.io/badge/Platform-Android-1f8f5f" alt="Platform" />
-    <img src="https://img.shields.io/badge/AI-TFLite-ff6b2b" alt="AI" />
+    <img src="https://img.shields.io/badge/AI-XGBoost-ff6b2b" alt="AI" />
     <img src="https://img.shields.io/badge/Offline-Local%20Only-1b1f23" alt="Offline" />
     <img src="https://img.shields.io/badge/Privacy-On--Device-0aa06e" alt="Privacy" />
     <img src="https://img.shields.io/badge/Status-Active-0aa06e" alt="Status" />
@@ -21,7 +21,7 @@
 
 ## Overview
 
-SignalFence is a privacy-first SMS firewall that runs fully on-device. It becomes the default SMS app, scores every message using a local TFLite model plus heuristic rules, and cleanly separates Inbox vs Blocked. It also quarantines risky threads, provides search and insights, and improves accuracy via user feedback signals.
+SignalFence is a privacy-first SMS firewall that runs fully on-device. It becomes the default SMS app, scores every message using a local XGBoost model plus heuristic rules, and cleanly separates Inbox vs Blocked. It also quarantines risky threads, provides search and insights, and improves accuracy via user feedback signals.
 
 ---
 
@@ -56,7 +56,7 @@ SignalFence is a privacy-first SMS firewall that runs fully on-device. It become
 | --- | --- |
 | Default SMS app | Intercepts SMS/MMS for real-time scoring and blocking. |
 | Inbox vs Blocked | Clean separation with quarantined spam threads. |
-| On-device AI | TFLite model + heuristics for risk scoring. |
+| On-device AI | XGBoost + heuristics for risk scoring. |
 | Adaptive feedback | Mark spam/safe to refine future scoring. |
 | Insights | Safety score, totals, and threat counts. |
 | Privacy-first | No cloud sync, fully offline operation. |
@@ -65,13 +65,12 @@ SignalFence is a privacy-first SMS firewall that runs fully on-device. It become
 
 ## AI/ML Pipeline
 
-- **Model**: `signalfence_spam_model.tflite` (on-device classifier in `app/src/main/assets/`).
-- **Learning Method**: Neural network (Embedding -> GlobalAveragePooling1D -> Dense MLP) binary classifier.
-- **Tokenizer**: `signalfence_tokenizer.json` for consistent text preprocessing.
-- **Metrics**: `signalfence_metrics.json` (accuracy, precision, recall, F1, threshold).
-- **Local ML Inference**: TFLite runs entirely on-device for message risk prediction.
+- **Model**: `signalfence_xgb.onnx` (on-device XGBoost via ONNX Runtime).
+- **Learning Method**: XGBoost (gradient-boosted decision trees) on TF-IDF features.
+- **Vectorizer Assets**: `signalfence_vocab.json` + `signalfence_idf.json` + `signalfence_meta.json`.
+- **Metrics**: `signalfence_xgb_metrics.json` (accuracy, precision, recall, F1, threshold).
+- **Local ML Inference**: ONNX Runtime Mobile runs entirely on-device for message risk prediction.
 - **Heuristic Layer**: Adds rule-based signals (links, UPI handles, OTP traps, phishing keywords).
-- **Calibration**: Applies score calibration to stabilize predictions.
 - **Fusion**: Combines ML probability and heuristic score into a single risk label.
 - **Feedback Loop**: User actions (mark spam/trusted) adjust future results and filtering.
 
@@ -83,7 +82,7 @@ SignalFence is a privacy-first SMS firewall that runs fully on-device. It become
 flowchart LR
   U[User SMS/MMS] --> AND[SignalFence Android App]
   AND --> SMS[Telephony Provider]
-  AND --> ML[TFLite Model]
+  AND --> ML[XGBoost ONNX Model]
   AND --> HEUR[Heuristic Rules]
   AND --> QDB[Local Quarantine DB]
   AND --> UI[Inbox / Blocked / Chat / Insights]
@@ -94,7 +93,7 @@ flowchart LR
 ## Tech Stack
 
 - Mobile: Android (Kotlin), Gradle
-- AI/ML: TensorFlow Lite
+- AI/ML: XGBoost + ONNX Runtime Mobile
 - UI: Material 3
 - Storage: Local SQLite (quarantine)
 
@@ -109,7 +108,7 @@ flowchart LR
 |   |   |-- AndroidManifest.xml
 |   |   |-- java/com/signalfence/app/
 |   |   |-- res/
-|   |   |-- assets/               # Tokenizer + model assets (SignalFence)
+|   |   |-- assets/               # Model + vectorizer assets (SignalFence XGBoost)
 
 |   |-- build.gradle.kts
 |-- build.gradle.kts

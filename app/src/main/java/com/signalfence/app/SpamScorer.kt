@@ -71,8 +71,8 @@ object SpamScorer {
 
         score = score.coerceIn(0, 100)
 
-        // Calibrated ML probability
-        val mlProbRaw = try { AppContextProvider.get()?.let { SpamTflite.predict(it, text) } ?: 0f } catch (_: Throwable) { 0f }
+        // XGBoost ONNX probability
+        val mlProbRaw = try { AppContextProvider.get()?.let { XgbOnnx.predict(it, text) } ?: 0f } catch (_: Throwable) { 0f }
         val strongSpamPattern = (
                 text.contains("bit.ly") ||
                         (text.contains("win") && text.contains("lottery")) ||
@@ -80,9 +80,9 @@ object SpamScorer {
                         text.contains("congratulations") ||
                         text.contains("\u20B9") || text.contains("rs") || text.contains("inr")
                 )
-        val mlProb = calibratePlatt(if (mlProbRaw < 0.3f && strongSpamPattern) 0.95f else mlProbRaw)
+        val mlProb = (if (mlProbRaw < 0.3f && strongSpamPattern) 0.95f else mlProbRaw)
         val mlScore = (mlProb * 100).toInt()
-        reasons.add("ML (calibrated) ${mlScore}%")
+        reasons.add("XGBoost ${mlScore}%")
 
         // ML dominates when available
         val fusedScore = kotlin.math.max(score, mlScore)

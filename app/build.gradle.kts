@@ -41,8 +41,8 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation("org.tensorflow:tensorflow-lite:2.14.0")
-
+    implementation("com.microsoft.onnxruntime:onnxruntime-mobile:1.16.3")
+    
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

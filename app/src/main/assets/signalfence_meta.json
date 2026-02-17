@@ -1,5 +1,6 @@
 {
-  "vocab_size": 8000,
-  "max_len": 40,
-  "oov_token": "<OOV>"
+  "vocab_size": 7747,
+  "lower": true,
+  "ngram": 1,
+  "threshold": 0.2
 }
