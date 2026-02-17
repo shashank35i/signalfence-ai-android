@@ -66,8 +66,9 @@ SignalFence is a privacy-first SMS firewall that runs fully on-device. It become
 ## AI/ML Pipeline
 
 - **Model**: `signalfence_spam_model.tflite` (on-device classifier in `app/src/main/assets/`).
-- **Learning Method**: Embedding + GlobalAveragePooling1D + Dense MLP binary classifier.
+- **Learning Method**: Neural network (Embedding -> GlobalAveragePooling1D -> Dense MLP) binary classifier.
 - **Tokenizer**: `signalfence_tokenizer.json` for consistent text preprocessing.
+- **Metrics**: `signalfence_metrics.json` (accuracy, precision, recall, F1, threshold).
 - **Local ML Inference**: TFLite runs entirely on-device for message risk prediction.
 - **Heuristic Layer**: Adds rule-based signals (links, UPI handles, OTP traps, phishing keywords).
 - **Calibration**: Applies score calibration to stabilize predictions.
