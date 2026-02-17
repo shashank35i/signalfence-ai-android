@@ -12,16 +12,16 @@ import kotlin.math.min
 import org.tensorflow.lite.Interpreter
 
 /**
- * Lightweight TFLite wrapper for the SMS spam model exported by train_sms_spam_model.py.
+ * Lightweight TFLite wrapper for the SignalFence spam model exported by train_sms_spam_model.py (Embedding + GlobalAveragePooling1D + MLP).
  *
  * Model input: int32 tensor [1, max_len] of token ids.
  * Output: float32 [[probability]] where 1.0 == spam.
  */
 object SpamTflite {
 
-    private const val MODEL_NAME = "sms_spam_model.tflite"
-    private const val TOKENIZER_NAME = "sms_tokenizer.json"
-    private const val META_NAME = "sms_meta.json"
+    private const val MODEL_NAME = "signalfence_spam_model.tflite"
+    private const val TOKENIZER_NAME = "signalfence_tokenizer.json"
+    private const val META_NAME = "signalfence_meta.json"
 
     private var interpreter: Interpreter? = null
     private var wordIndex: Map<String, Int> = emptyMap()

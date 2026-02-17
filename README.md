@@ -65,8 +65,9 @@ SignalFence is a privacy-first SMS firewall that runs fully on-device. It become
 
 ## AI/ML Pipeline
 
-- **Model**: `sms_spam_model.tflite` (on-device classifier in `app/src/main/assets/`).
-- **Tokenizer**: `sms_tokenizer.json` for consistent text preprocessing.
+- **Model**: `signalfence_spam_model.tflite` (on-device classifier in `app/src/main/assets/`).
+- **Learning Method**: Embedding + GlobalAveragePooling1D + Dense MLP binary classifier.
+- **Tokenizer**: `signalfence_tokenizer.json` for consistent text preprocessing.
 - **Local ML Inference**: TFLite runs entirely on-device for message risk prediction.
 - **Heuristic Layer**: Adds rule-based signals (links, UPI handles, OTP traps, phishing keywords).
 - **Calibration**: Applies score calibration to stabilize predictions.
@@ -107,7 +108,8 @@ flowchart LR
 |   |   |-- AndroidManifest.xml
 |   |   |-- java/com/signalfence/app/
 |   |   |-- res/
-|   |   |-- assets/               # Tokenizer + model assets
+|   |   |-- assets/               # Tokenizer + model assets (SignalFence)
+
 |   |-- build.gradle.kts
 |-- build.gradle.kts
 |-- settings.gradle.kts
