@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SignalFence</string>
+    <string name="tagline">AI-powered SMS firewall for spam and scams.</string>
+</resources>
