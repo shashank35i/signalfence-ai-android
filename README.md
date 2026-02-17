@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="app/src/main/res/drawable/logo.png" alt="SignalFence" width="120" />
+  <img src="assets/logo.png" alt="SignalFence" width="120" />
 
   <h1>SignalFence</h1>
 
