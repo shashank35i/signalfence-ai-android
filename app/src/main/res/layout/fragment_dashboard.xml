@@ -10,7 +10,7 @@
         style="@style/Widget.SignalFence.Toolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorBackground"
+        android:background="@color/colorSurface"
         app:title="Radar"
         app:titleTextColor="@color/colorOnSurface"
         app:layout_constraintTop_toTopOf="parent"
@@ -37,7 +37,9 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/colorSurface">
+                app:cardBackgroundColor="@color/colorSurface"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/colorOutline">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -87,7 +89,9 @@
                     android:layout_marginEnd="8dp"
                     app:cardCornerRadius="18dp"
                     app:cardElevation="0dp"
-                    app:cardBackgroundColor="@color/colorSurfaceVariant">
+                    app:cardBackgroundColor="@color/colorSurface"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/colorOutline">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -120,7 +124,9 @@
                     android:layout_marginStart="8dp"
                     app:cardCornerRadius="18dp"
                     app:cardElevation="0dp"
-                    app:cardBackgroundColor="@color/colorSurfaceVariant">
+                    app:cardBackgroundColor="@color/colorSurface"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/colorOutline">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -160,7 +166,9 @@
                     android:layout_marginEnd="8dp"
                     app:cardCornerRadius="18dp"
                     app:cardElevation="0dp"
-                    app:cardBackgroundColor="@color/colorSurfaceVariant">
+                    app:cardBackgroundColor="@color/colorSurface"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/colorOutline">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -193,7 +201,9 @@
                     android:layout_marginStart="8dp"
                     app:cardCornerRadius="18dp"
                     app:cardElevation="0dp"
-                    app:cardBackgroundColor="@color/colorSurfaceVariant">
+                    app:cardBackgroundColor="@color/colorSurface"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/colorOutline">
 
                     <LinearLayout
                         android:layout_width="match_parent"

@@ -23,6 +23,8 @@
     <color name="colorSurfaceVariant">#EDF1F7</color>
     <color name="colorOnSurfaceVariant">#55627A</color>
     <color name="colorOutline">#D2D8E1</color>
+    <color name="colorOnSurface00">#000F172A</color>
+    <color name="colorOnSurfaceFF">#FF0F172A</color>
 
     <color name="colorError">#E11D48</color>
     <color name="colorOnError">#FFFFFF</color>
@@ -61,6 +63,16 @@
 
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+
+    <!-- Alpha overlays -->
+    <color name="overlay_white_10">#1AFFFFFF</color>
+    <color name="overlay_white_20">#33FFFFFF</color>
+    <color name="overlay_white_15">#25FFFFFF</color>
+    <color name="overlay_white_27">#45FFFFFF</color>
+    <color name="overlay_white_21">#35FFFFFF</color>
+    <color name="overlay_white_17">#2AFFFFFF</color>
+    <color name="overlay_white_80">#CCFFFFFF</color>
+    <color name="overlay_black_10">#1A000000</color>
 
     <!-- Legacy aliases for compatibility -->
     <color name="theme_bg_variant">@color/colorSurfaceVariant</color>

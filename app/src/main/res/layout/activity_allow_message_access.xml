@@ -41,7 +41,9 @@
                 android:layout_gravity="center"
                 app:cardCornerRadius="28dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/colorPrimaryContainer">
+                app:cardBackgroundColor="@color/colorPrimaryContainer"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/colorOutline">
 
                 <ImageView
                     android:id="@+id/ivChat"
@@ -81,7 +83,9 @@
                 android:layout_marginTop="24dp"
                 app:cardCornerRadius="18dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/colorSurface">
+                app:cardBackgroundColor="@color/colorSurface"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/colorOutline">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -101,7 +105,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="• Default SMS app routing"
+                        android:text="- Default SMS app routing"
                         android:textColor="@color/colorOnSurfaceVariant"
                         android:textSize="14sp" />
 
@@ -109,7 +113,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="• Real-time spam & phishing defense"
+                        android:text="- Real-time spam &amp; phishing defense"
                         android:textColor="@color/colorOnSurfaceVariant"
                         android:textSize="14sp" />
 
@@ -117,7 +121,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="• Safe reply flow inside SignalFence"
+                        android:text="- Safe reply flow inside SignalFence"
                         android:textColor="@color/colorOnSurfaceVariant"
                         android:textSize="14sp" />
                 </LinearLayout>

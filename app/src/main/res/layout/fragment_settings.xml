@@ -6,24 +6,41 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackground">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
-        android:text="Preferences"
-        android:textColor="@color/colorOnSurface"
-        android:textSize="22sp"
-        android:textStyle="bold"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preferences"
+            android:textColor="@color/colorOnSurface"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Control protection, appearance, and trusted behavior."
+            android:textColor="@color/colorOnSurfaceVariant"
+            android:textSize="12sp" />
+    </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:overScrollMode="never"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@id/header"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -39,7 +56,9 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="18dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/colorSurface">
+                app:cardBackgroundColor="@color/colorSurface"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/colorOutline">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -138,7 +157,9 @@
                     android:layout_marginTop="8dp"
                     app:cardCornerRadius="18dp"
                     app:cardElevation="0dp"
-                    app:cardBackgroundColor="@color/colorSurface">
+                    app:cardBackgroundColor="@color/colorSurface"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/colorOutline">
 
                     <LinearLayout
                         android:layout_width="match_parent"

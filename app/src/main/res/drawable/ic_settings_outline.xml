@@ -7,8 +7,8 @@
 
     <!-- Outer gear (perfectly centered) -->
     <path
-        android:fillColor="#00000000"
-        android:strokeColor="#7C8AA5"
+        android:fillColor="@color/colorOnSurface00"
+        android:strokeColor="@color/colorOnSurfaceVariant"
         android:strokeWidth="2"
         android:strokeLineCap="round"
         android:strokeLineJoin="round"
@@ -16,8 +16,8 @@
 
     <!-- Inner circle (centered at 12,12) -->
     <path
-        android:fillColor="#00000000"
-        android:strokeColor="#7C8AA5"
+        android:fillColor="@color/colorOnSurface00"
+        android:strokeColor="@color/colorOnSurfaceVariant"
         android:strokeWidth="2"
         android:strokeLineCap="round"
         android:strokeLineJoin="round"
